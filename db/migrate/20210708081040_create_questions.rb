@@ -5,7 +5,7 @@ class CreateQuestions < ActiveRecord::Migration[6.0]
       t.text :description
       t.string :stem
       t.string :language
-      t.string :type
+      t.string :question_type
       t.string :expert_review
       t.string :status
       t.references :topic, null: true, foreign_key: true
