@@ -18,10 +18,17 @@ RailsAdmin.config do |config|
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-
+ 
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
+
+  
+ config.model 'Course' do 
+  configure :course_topics do 
+    visible hide 
+  end 
+end
 
   config.actions do
     dashboard                     # mandatory
@@ -37,5 +44,9 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+
+
+
+
   end
 end

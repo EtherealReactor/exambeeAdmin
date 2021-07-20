@@ -3,6 +3,7 @@ class CreateCourses < ActiveRecord::Migration[6.0]
     create_table :courses do |t|
       t.string :name
       t.string :description
+      t.string :category
       t.references :mentor, null: true, foreign_key: { to_table: :users }
 
 
