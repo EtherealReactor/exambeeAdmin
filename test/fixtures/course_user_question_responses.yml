@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course_user_enrollment_id: 1
+  course_topic_id: 1
+  question_id: 1
+  attempt_timestamp: 2021-07-21 10:53:33
+  answer_id: 1
+  attempt_correct_or_not: 
+
+two:
+  course_user_enrollment_id: 1
+  course_topic_id: 1
+  question_id: 1
+  attempt_timestamp: 2021-07-21 10:53:33
+  answer_id: 1
+  attempt_correct_or_not: 

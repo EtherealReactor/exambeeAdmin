@@ -1,0 +1,2 @@
+class CourseUserQuestionResponse < ApplicationRecord
+end
