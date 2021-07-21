@@ -1,0 +1,2 @@
+class AnswersMaster < ApplicationRecord
+end

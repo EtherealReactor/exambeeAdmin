@@ -1,0 +1,49 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question_id: 1
+  question_stem: MyString
+  question_language: 
+  question_type: MyString
+  category_generak: MyString
+  category_ycb_l1: MyString
+  category_ycb_l2: MyString
+  category_ycb_l3: MyString
+  category_svyasa_yic: MyString
+  category_svyasa_mscyoga: MyString
+  category_svyasa_ayurveda: MyString
+  cayegory_sdmnc_naturopathy: MyString
+  attribute_new1: MyString
+  attribute_new2: MyString
+  attribute_new3: MyString
+  attribute_new3: MyString
+  attribute_new4: MyString
+  attribute_new5: MyString
+  attribute_new6: MyString
+  mark_for_expert_review_flag: MyString
+  question_status: MyString
+  master_topic_id: 1
+
+two:
+  question_id: 1
+  question_stem: MyString
+  question_language: 
+  question_type: MyString
+  category_generak: MyString
+  category_ycb_l1: MyString
+  category_ycb_l2: MyString
+  category_ycb_l3: MyString
+  category_svyasa_yic: MyString
+  category_svyasa_mscyoga: MyString
+  category_svyasa_ayurveda: MyString
+  cayegory_sdmnc_naturopathy: MyString
+  attribute_new1: MyString
+  attribute_new2: MyString
+  attribute_new3: MyString
+  attribute_new3: MyString
+  attribute_new4: MyString
+  attribute_new5: MyString
+  attribute_new6: MyString
+  mark_for_expert_review_flag: MyString
+  question_status: MyString
+  master_topic_id: 1

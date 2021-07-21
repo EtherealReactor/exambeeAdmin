@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  master_topic_id: 1
+  parent_master_topic_id: 1
+
+two:
+  master_topic_id: 1
+  parent_master_topic_id: 1

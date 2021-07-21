@@ -1,0 +1,2 @@
+class CourseTopicTree < ApplicationRecord
+end

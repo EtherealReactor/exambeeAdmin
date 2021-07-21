@@ -10,87 +10,102 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_08_150245) do
+ActiveRecord::Schema.define(version: 2021_07_21_150244) do
 
-  create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "answer"
-    t.text "description"
-    t.boolean "is_correct", default: false
-    t.bigint "question_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["question_id"], name: "index_answers_on_question_id"
-  end
-
-  create_table "batch_learners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "batch_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["batch_id"], name: "index_batch_learners_on_batch_id"
-    t.index ["user_id"], name: "index_batch_learners_on_user_id"
-  end
-
-  create_table "batches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.bigint "course_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["course_id"], name: "index_batches_on_course_id"
-  end
-
-  create_table "course_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.decimal "level_code", precision: 10
-    t.string "topic_name"
-    t.bigint "course_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["course_id"], name: "index_course_contents_on_course_id"
-  end
-
-  create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.bigint "mentor_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["mentor_id"], name: "index_courses_on_mentor_id"
-  end
-
-  create_table "learning_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "description"
+  create_table "answers_masters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.integer "answer_id"
+    t.string "answer_language"
+    t.integer "question_id"
+    t.string "answer"
+    t.string "correct_flag"
+    t.string "anser_supplement"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "question", null: false
-    t.text "description"
-    t.string "tag"
-    t.bigint "course_content_id"
+  create_table "course_questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.integer "course_id"
+    t.integer "course_topic_id"
+    t.integer "question_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["course_content_id"], name: "index_questions_on_course_content_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "username"
-    t.string "password_digest", null: false
+  create_table "course_topic_trees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.integer "course_topic_id"
+    t.integer "parent_course_topic_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "superadmin_role", default: false
-    t.boolean "supervisor_role", default: false
-    t.boolean "user_role", default: true
   end
 
-  add_foreign_key "answers", "questions"
-  add_foreign_key "batch_learners", "batches"
-  add_foreign_key "batch_learners", "users"
-  add_foreign_key "batches", "courses"
-  add_foreign_key "course_contents", "courses"
-  add_foreign_key "courses", "users", column: "mentor_id"
-  add_foreign_key "questions", "course_contents"
+  create_table "course_topics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.integer "course_topic_id"
+    t.string "course_topic_name"
+    t.string "course_topic_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.integer "course_id"
+    t.string "course_name"
+    t.string "course_description"
+    t.string "course_category"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "question_masters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.integer "question_id"
+    t.string "question_stem"
+    t.string "question_language"
+    t.string "question_type"
+    t.string "category_generak"
+    t.string "category_ycb_l1"
+    t.string "category_ycb_l2"
+    t.string "category_ycb_l3"
+    t.string "category_svyasa_yic"
+    t.string "category_svyasa_mscyoga"
+    t.string "category_svyasa_ayurveda"
+    t.string "cayegory_sdmnc_naturopathy"
+    t.string "attribute_new1"
+    t.string "attribute_new2"
+    t.string "attribute_new3"
+    t.string "attribute_new4"
+    t.string "attribute_new5"
+    t.string "attribute_new6"
+    t.string "attribute_new7"
+    t.string "mark_for_expert_review_flag"
+    t.string "question_status"
+    t.integer "master_topic_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "topic_master_trees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.integer "master_topic_id"
+    t.integer "parent_master_topic_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "topic_masters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.integer "master_topic_id"
+    t.string "master_topic_name"
+    t.string "master_topic_type"
+    t.string "master_topic_language"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "user_login_id"
+    t.string "user_email_id"
+    t.string "user_contact_no"
+    t.string "user_supplement_info"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
 end

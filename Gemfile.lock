@@ -122,7 +122,6 @@ GEM
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
-    pg (1.2.3)
     puma (4.3.8)
       nio4r (~> 2.0)
     racc (1.5.2)
@@ -221,16 +220,12 @@ DEPENDENCIES
   devise
   listen (~> 3.2)
   mysql2
-  pg (>= 0.18, < 2.0)
   puma (~> 4.1)
   rails (~> 6.0.4)
   rails_admin (~> 2.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
-
-RUBY VERSION
-   ruby 2.6.6p146
 
 BUNDLED WITH
    1.17.3

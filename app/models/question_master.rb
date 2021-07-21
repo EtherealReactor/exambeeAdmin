@@ -1,0 +1,2 @@
+class QuestionMaster < ApplicationRecord
+end

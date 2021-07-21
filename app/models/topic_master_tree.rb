@@ -1,0 +1,2 @@
+class TopicMasterTree < ApplicationRecord
+end
